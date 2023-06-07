@@ -90,6 +90,8 @@ public class UploadActivity extends AppCompatActivity {
 
                             String bilgiler = binding.editSongName.getText().toString();
 
+                            double score = 0.0f;
+
                             FirebaseUser user = auth.getCurrentUser();
                             String email = user.getEmail();
 
@@ -98,7 +100,7 @@ public class UploadActivity extends AppCompatActivity {
                             postData.put("downloadurl", downloadUrl);
                             postData.put("songInfo", bilgiler);
                             postData.put("date", FieldValue.serverTimestamp());
-                            postData.put("score", 0.0f);
+                            postData.put("score", score);
 
                             firebaseFirestore.collection("Posts").add(postData).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                 @Override
@@ -113,6 +115,7 @@ public class UploadActivity extends AppCompatActivity {
                                     Toast.makeText(UploadActivity.this, e.getLocalizedMessage(),Toast.LENGTH_LONG).show();
                                 }
                             });
+
                         }
                     });
 

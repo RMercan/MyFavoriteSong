@@ -68,7 +68,7 @@ public class FeedActivity extends AppCompatActivity {
 
                         //Casting(object olarak verilen veriyi string e çevirelim)
                         String userEmail = (String) data.get("useremail");
-                        String info = (String)  data.get("info");
+                        String info = (String)  data.get("songInfo");
                         String downloadUrl = (String) data.get("downloadurl");
                         Object scoreObj = data.get("score");
                         String scoreString = String.valueOf(scoreObj);
@@ -103,6 +103,9 @@ public class FeedActivity extends AppCompatActivity {
             Intent intentToLogin = new Intent(FeedActivity.this, MainActivity.class);
             startActivity(intentToLogin);
             finish();
+        }else if(item.getItemId()==R.id.aboutUs){
+            Intent intent= new Intent(FeedActivity.this, about.class );
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);

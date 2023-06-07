@@ -6,9 +6,11 @@ import androidx.annotation.NonNull;
 import android.os.Bundle;
 import android.content.Intent;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.rabiamercan.myapplication.R;
 import com.rabiamercan.myapplication.databinding.ActivityMainBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -31,6 +33,14 @@ public class MainActivity extends AppCompatActivity {
         auth=FirebaseAuth.getInstance();
 
         FirebaseUser user = auth.getCurrentUser();
+        TextView textViewAbout = (TextView) findViewById(R.id.textViewAbout);
+        textViewAbout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, about.class);
+                startActivity(intent);
+            }
+        });
 
         if(user != null){
             Intent intent = new Intent(MainActivity.this, FeedActivity.class);

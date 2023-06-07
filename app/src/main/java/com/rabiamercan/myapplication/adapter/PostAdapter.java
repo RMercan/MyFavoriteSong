@@ -45,10 +45,9 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostHolder> {
     @Override
     public void onBindViewHolder(@NonNull PostAdapter.PostHolder holder, int position) {
         holder.recyclerRowBinding.recyclerViewUserEmailText.setText(postArrayList.get(position).email);
+        //holder.recyclerRowBinding.recyclerViewInfoText.setText("info");
         holder.recyclerRowBinding.recyclerViewInfoText.setText(postArrayList.get(position).info);
         holder.recyclerRowBinding.recyclerViewScoreText.setText(postArrayList.get(position).score);
-
-
 
     }
 
